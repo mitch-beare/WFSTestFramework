@@ -14,8 +14,7 @@
         mc:Ignorable="d"
         x:Name="_winMain"
         Title="HealthChecker" Height="600" Width="800"
-        Loaded="MainWindow_OnLoaded"
-        ContentRendered="_winMain_ContentRendered">
+        Loaded="MainWindow_OnLoaded">
 
     <materialDesign:DialogHost IsOpen="False">
         <materialDesign:DialogHost.DialogContent>
@@ -82,7 +81,6 @@
                 </Grid>
 
                 <Button Content="Run Tests" VerticalAlignment="Top"  Command="{Binding Path=ChangeNameCommand}" IsDefault="True" />
-                <Button Content="Show Dialog" VerticalAlignment="Top" Command="{Binding Path=OpenDialogCommand}" IsDefault="False" CommandParameter="HelloWorld" />
             </StackPanel>
         </Grid>
     </materialDesign:DialogHost>

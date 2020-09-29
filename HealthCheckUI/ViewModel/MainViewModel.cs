@@ -208,7 +208,7 @@ namespace HealthCheckUI.ViewModel
         {
             try
             {
-                using (var mgr = await UpdateManager.GitHubUpdateManager(""))
+                using (var mgr = await UpdateManager.GitHubUpdateManager("https://github.com/mitch-beare/WFSTestFramework"))
                 {
                     var release = await mgr.UpdateApp();
                 }

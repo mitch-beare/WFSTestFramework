@@ -44,11 +44,6 @@ namespace HealthCheckUI.View
             this.MinHeight = this.Height;
         }
 
-        private void _winMain_ContentRendered(object sender, EventArgs e)
-        {
-            ViewModel.
-        }
-
         #endregion Events
     }
 }
