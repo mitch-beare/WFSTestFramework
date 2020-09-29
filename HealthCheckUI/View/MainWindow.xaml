@@ -1,0 +1,89 @@
+﻿<Window x:Class="HealthCheckUI.View.MainWindow"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        x:Name="_winMain"
+        Title="HealthChecker" Height="600" Width="800"
+        Loaded="MainWindow_OnLoaded"
+        ContentRendered="_winMain_ContentRendered">
+
+    <materialDesign:DialogHost IsOpen="False">
+        <materialDesign:DialogHost.DialogContent>
+            <Label Content="Test dialog"></Label>
+        </materialDesign:DialogHost.DialogContent>
+
+        <Grid>
+            <StackPanel Margin="10">
+                <materialDesign:Card Padding="16" Margin="10">
+                    <StackPanel>
+                        <Label Content="Please Enter a site to Test" />
+                        <TextBox VerticalScrollBarVisibility="Visible" Height="Auto" TextWrapping="Wrap" AcceptsReturn="True" AcceptsTab="True" VerticalAlignment="Top" Text="{Binding Path=SiteText, Mode=TwoWay}" />
+                    </StackPanel>
+                </materialDesign:Card>
+
+                <Grid HorizontalAlignment="Stretch">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*" />
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+
+                    <materialDesign:Card Padding="16" Margin="10" Grid.Column="0">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="2*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="2*" />
+                                <RowDefinition Height="2*" />
+                                <RowDefinition Height="2*" />
+                                <RowDefinition Height="2*" />
+                            </Grid.RowDefinitions>
+                            <Label Content="Report Settings" FontSize="20" HorizontalAlignment="Center" FontWeight="Bold" Grid.Row="0" Grid.ColumnSpan="2" />
+
+                            <Label Content="Out Directory:" Grid.Row="1" Grid.Column="0" />
+                            <TextBox Name="inptOutDir" TextWrapping="Wrap" HorizontalAlignment="Stretch" Text="{Binding Path=OutDir, Mode=TwoWay}" Grid.Row="1" Grid.Column="1" />
+
+                            <Label Content="File Name:" Grid.Row="2" Grid.Column="0" />
+                            <TextBox Name="inptOutFile" TextWrapping="Wrap" HorizontalAlignment="Stretch" Text="{Binding Path=OutFile, Mode=TwoWay}" Grid.Row="2" Grid.Column="1" />
+
+                            <Label Content="File Type:" Grid.Row="3" Grid.Column="0" />
+                            <ComboBox Name="cmbFileType" ItemsSource="{Binding Path=FileTypes, Mode=TwoWay}" SelectedItem="{Binding SelectedType, Mode=TwoWay}" Text="SelectOption" Grid.Row="3" Grid.Column="1" />
+                        </Grid>
+                    </materialDesign:Card>
+
+                    <materialDesign:Card Padding="16" Margin="10" Grid.Column="1">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="2*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="2*" />
+                                <RowDefinition Height="2*" />
+                            </Grid.RowDefinitions>
+
+                            <Label Content="Test Settings" FontSize="20" HorizontalAlignment="Center" FontWeight="Bold" Grid.Row="0" Grid.ColumnSpan="2" />
+
+                            <Label Content="Browser" Grid.Row="1" Grid.Column="0" />
+                            <ComboBox Name="cmbBrowserType" HorizontalAlignment="Stretch" ItemsSource="{Binding Path=BrowserTypes, Mode=TwoWay}" SelectedItem="{Binding SelectedBrowser, Mode=TwoWay}" Text="SelectOption" Grid.Row="1" Grid.Column="1" />
+                        </Grid>
+                    </materialDesign:Card>
+                </Grid>
+
+                <Button Content="Run Tests" VerticalAlignment="Top"  Command="{Binding Path=ChangeNameCommand}" IsDefault="True" />
+                <Button Content="Show Dialog" VerticalAlignment="Top" Command="{Binding Path=OpenDialogCommand}" IsDefault="False" CommandParameter="HelloWorld" />
+            </StackPanel>
+        </Grid>
+    </materialDesign:DialogHost>
+</Window>

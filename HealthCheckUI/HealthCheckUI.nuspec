@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>WFSHealthCheck</id>
+    <version>1.0.0</version>
+    <authors>Queensland Government</authors>
+    <owners>Queensland Department of Education and Training</owners>
+    <description>WFS Health Check</description>
+    <releaseNotes>Initial Release</releaseNotes>
+  </metadata>
+  <files>
+    <file src="*.*" target="lib\net45\" exclude="*.pdb;*.nupkg;*.vshost.*" />
+  </files>
+</package>
